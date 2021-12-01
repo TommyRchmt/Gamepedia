@@ -2,6 +2,7 @@
 platform :ios, '15.0'
 
 source 'https://github.com/TommyRchmt/Gamepedia-CommonPodSpecs'
+source 'https://github.com/CocoaPods/Specs.git'
 
 workspace 'Gamepedia'
 
