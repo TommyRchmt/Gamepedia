@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: |
+        cd Gamepedia
+        pod install --repo-update
+      shell: bash
+    - name: Build and test
+      run: xcodebuild clean build test -project TriangleApp.xcodeproj -scheme TriangleApp -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.0' build test
