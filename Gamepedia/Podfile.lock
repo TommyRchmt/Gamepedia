@@ -1,0 +1,63 @@
+PODS:
+  - Alamofire (5.4.3)
+  - Common (1.0.0)
+  - Kingfisher (6.3.1)
+  - Realm (10.20.0):
+    - Realm/Headers (= 10.20.0)
+  - Realm/Headers (10.20.0)
+  - RealmSwift (10.20.0):
+    - Realm (= 10.20.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
+  - SwiftLint (0.45.0)
+  - Swinject (2.7.1)
+  - SwinjectStoryboard (2.2.2):
+    - Swinject (~> 2.7.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - Common
+  - Kingfisher
+  - Realm
+  - RealmSwift
+  - RxCocoa
+  - RxSwift
+  - SwiftLint
+  - Swinject
+  - SwinjectStoryboard
+
+SPEC REPOS:
+  https://github.com/TommyRchmt/Gamepedia-CommonPodSpecs:
+    - Common
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - Realm
+    - RealmSwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SwiftLint
+    - Swinject
+    - SwinjectStoryboard
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Common: 130a143a0a87b2890b25c2b2d5357627c05df37c
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  Realm: ae32bdc1da7d19c7617e0400201a77acd4a211b9
+  RealmSwift: c95eec6a712924870b2e36c4c081d63ec07e5414
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SwiftLint: e5c7f1fba68eccfc51509d5b2ce1699f5502e0c7
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  SwinjectStoryboard: 240ce371396da09a4c43c72ee5c148108500e184
+
+PODFILE CHECKSUM: a85c3060760c5cf441bb753d6e8a156fa23bde0d
+
+COCOAPODS: 1.10.0

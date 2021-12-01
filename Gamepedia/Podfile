@@ -1,0 +1,48 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '15.0'
+
+source 'https://github.com/TommyRchmt/Gamepedia-CommonPodSpecs'
+
+workspace 'Gamepedia'
+
+target 'Gamepedia' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Gamepedia
+  pod 'Common'
+
+  pod 'Alamofire'
+  pod 'Swinject'
+  pod 'SwinjectStoryboard'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Kingfisher'
+  pod 'SwiftLint'
+  pod 'Realm', :modular_headers => true
+  pod 'RealmSwift', :modular_headers => true
+
+  target 'GamepediaTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'GamepediaUITests' do
+    # Pods for testing
+  end
+
+end
+
+
+target 'Core' do
+  project '../Core/Core.xcodeproj'
+  use_frameworks!
+  pod 'Alamofire'
+  pod 'Swinject'
+  pod 'SwinjectStoryboard'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Realm', :modular_headers => true
+  pod 'RealmSwift', :modular_headers => true
+
+end

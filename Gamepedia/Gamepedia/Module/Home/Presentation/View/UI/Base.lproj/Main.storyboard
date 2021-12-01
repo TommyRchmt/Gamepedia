@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Cv-eX-9ED">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="xJq-wd-qNB">
+            <objects>
+                <viewController id="psU-UL-E2G" customClass="HomeViewController" customModule="Gamepedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kgK-kx-8TH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HsV-e7-17X">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vfn-dJ-zob" id="jld-y0-9NH"/>
+                                    <outlet property="delegate" destination="vfn-dJ-zob" id="Kve-Ff-9ra"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Axv-7U-ng0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Axv-7U-ng0" firstAttribute="trailing" secondItem="HsV-e7-17X" secondAttribute="trailing" id="GuW-7E-1Wa"/>
+                            <constraint firstItem="HsV-e7-17X" firstAttribute="top" secondItem="Axv-7U-ng0" secondAttribute="top" id="PxF-Mg-zg3"/>
+                            <constraint firstAttribute="bottom" secondItem="HsV-e7-17X" secondAttribute="bottom" id="bo7-HY-a87"/>
+                            <constraint firstItem="HsV-e7-17X" firstAttribute="leading" secondItem="Axv-7U-ng0" secondAttribute="leading" id="nhl-ZC-js5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="J5e-zV-UN7">
+                        <barButtonItem key="rightBarButtonItem" image="person.crop.circle" catalog="system" id="aNm-xm-SX2">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="aboutButtonTapped:" destination="psU-UL-E2G" id="5Uw-y7-NmP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="HsV-e7-17X" id="r2o-vu-Sdb"/>
+                        <outlet property="tableViewDataSource" destination="vfn-dJ-zob" id="PAO-hY-FRE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kvj-O1-85f" sceneMemberID="firstResponder"/>
+                <customObject id="vfn-dJ-zob" customClass="HomeTableViewDataSource" customModule="Gamepedia" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="-591" y="472"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uoq-kd-pQ3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Cv-eX-9ED" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="bSc-jV-9cM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="psU-UL-E2G" kind="relationship" relationship="rootViewController" id="9ip-Xb-UuB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahi-gq-QXO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1391" y="471"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

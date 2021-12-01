@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AirbnbCerealLight.ttf">
+            <string>AirbnbCerealApp-Light</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Detail View Controller-->
+        <scene sceneID="uR4-uR-2Za">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="h2J-Ds-HZA" customClass="DetailViewController" customModule="Gamepedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Esl-8L-aKi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="02E-sr-01z">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="358.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Grand Theft Auto IV" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8z-U5-K6V">
+                                <rect key="frame" x="16" y="374.5" width="382" height="35"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="30"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.21960784310000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Released: 2013-09-17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UE4-Ma-2bL">
+                                <rect key="frame" x="16" y="409.5" width="378" height="15.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="13"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.21960784310000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdX-Lt-4kG">
+                                <rect key="frame" x="12" y="465" width="386" height="383"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="AirbnbCerealApp-Light" family="Airbnb Cereal App" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Zh-oc-Njx">
+                                <rect key="frame" x="16" y="433" width="60" height="24"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fV5-jc-NIw">
+                                        <rect key="frame" x="4" y="1.5" width="20" height="20"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="4BT-iy-QfE"/>
+                                            <constraint firstAttribute="width" constant="20" id="6de-9Y-5Ry"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.67" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vL-4B-Ir7">
+                                        <rect key="frame" x="29" y="4" width="27" height="17"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.76470588240000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5vL-4B-Ir7" secondAttribute="bottom" constant="3" id="1UO-Hh-0lX"/>
+                                    <constraint firstItem="fV5-jc-NIw" firstAttribute="centerY" secondItem="4Zh-oc-Njx" secondAttribute="centerY" id="7cf-Yq-krT"/>
+                                    <constraint firstItem="fV5-jc-NIw" firstAttribute="leading" secondItem="4Zh-oc-Njx" secondAttribute="leading" constant="4" id="L1c-sO-bNW"/>
+                                    <constraint firstItem="5vL-4B-Ir7" firstAttribute="leading" secondItem="fV5-jc-NIw" secondAttribute="trailing" constant="5" id="RaF-wF-clh"/>
+                                    <constraint firstAttribute="height" constant="24" id="d5I-Nd-agJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="5vL-4B-Ir7" secondAttribute="trailing" constant="4" id="geH-h7-ETk"/>
+                                    <constraint firstAttribute="width" constant="60" id="lnb-3f-h5T"/>
+                                    <constraint firstItem="5vL-4B-Ir7" firstAttribute="top" secondItem="4Zh-oc-Njx" secondAttribute="top" constant="4" id="owC-rA-Gl6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6DJ-Fy-tWn">
+                                <rect key="frame" x="16" y="856" width="226.5" height="20"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8dh-8a-oiQ">
+                                        <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                        <color key="tintColor" red="0.20000000000000001" green="0.21960784310000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="KX6-28-HIw"/>
+                                            <constraint firstAttribute="height" constant="20" id="nx2-bb-f4A"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://www.rockstargames.com/v/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4i-gt-Jo1">
+                                        <rect key="frame" x="28" y="0.0" width="198.5" height="20"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="13"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.21960784310000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ett-lW-VrU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Zh-oc-Njx" firstAttribute="leading" secondItem="ett-lW-VrU" secondAttribute="leading" constant="16" id="5RG-9j-o5z"/>
+                            <constraint firstItem="02E-sr-01z" firstAttribute="trailing" secondItem="ett-lW-VrU" secondAttribute="trailing" id="G7J-mf-wFQ"/>
+                            <constraint firstItem="4Zh-oc-Njx" firstAttribute="top" secondItem="UE4-Ma-2bL" secondAttribute="bottom" constant="8" id="GFL-VV-7fD"/>
+                            <constraint firstItem="6DJ-Fy-tWn" firstAttribute="top" secondItem="jdX-Lt-4kG" secondAttribute="bottom" constant="8" id="Hxk-k5-o3O"/>
+                            <constraint firstItem="UE4-Ma-2bL" firstAttribute="top" secondItem="y8z-U5-K6V" secondAttribute="bottom" id="Jh4-c8-7jv"/>
+                            <constraint firstItem="ett-lW-VrU" firstAttribute="trailing" secondItem="jdX-Lt-4kG" secondAttribute="trailing" constant="16" id="N4l-sh-AKF"/>
+                            <constraint firstItem="02E-sr-01z" firstAttribute="top" secondItem="Esl-8L-aKi" secondAttribute="top" id="Nv8-s5-HNO"/>
+                            <constraint firstItem="y8z-U5-K6V" firstAttribute="leading" secondItem="ett-lW-VrU" secondAttribute="leading" constant="16" id="VH9-6J-0hN"/>
+                            <constraint firstItem="jdX-Lt-4kG" firstAttribute="top" secondItem="4Zh-oc-Njx" secondAttribute="bottom" constant="8" id="VqC-wf-QAi"/>
+                            <constraint firstItem="ett-lW-VrU" firstAttribute="trailing" secondItem="y8z-U5-K6V" secondAttribute="trailing" constant="16" id="XVN-ac-OKQ"/>
+                            <constraint firstItem="UE4-Ma-2bL" firstAttribute="leading" secondItem="ett-lW-VrU" secondAttribute="leading" constant="16" id="YHj-yZ-k8S"/>
+                            <constraint firstAttribute="bottom" secondItem="6DJ-Fy-tWn" secondAttribute="bottom" constant="20" id="Zek-Wa-DAQ"/>
+                            <constraint firstItem="jdX-Lt-4kG" firstAttribute="leading" secondItem="ett-lW-VrU" secondAttribute="leading" constant="12" id="c9M-1b-gay"/>
+                            <constraint firstItem="6DJ-Fy-tWn" firstAttribute="leading" secondItem="ett-lW-VrU" secondAttribute="leading" constant="16" id="e12-nO-ajs"/>
+                            <constraint firstItem="ett-lW-VrU" firstAttribute="trailing" secondItem="UE4-Ma-2bL" secondAttribute="trailing" constant="20" id="kJr-Dy-7Oa"/>
+                            <constraint firstItem="y8z-U5-K6V" firstAttribute="top" secondItem="02E-sr-01z" secondAttribute="bottom" constant="16" id="oGl-5f-6SH"/>
+                            <constraint firstItem="02E-sr-01z" firstAttribute="leading" secondItem="ett-lW-VrU" secondAttribute="leading" id="rMq-T7-UMc"/>
+                            <constraint firstItem="02E-sr-01z" firstAttribute="height" secondItem="Esl-8L-aKi" secondAttribute="height" multiplier="0.4" id="zNt-b6-7tT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameDetailDescription" destination="jdX-Lt-4kG" id="iVL-vM-xOT"/>
+                        <outlet property="gameDetailImageView" destination="02E-sr-01z" id="VGG-bG-z5i"/>
+                        <outlet property="gameDetailRating" destination="5vL-4B-Ir7" id="CoF-Fn-NGX"/>
+                        <outlet property="gameDetailReleased" destination="UE4-Ma-2bL" id="KK7-E6-xx2"/>
+                        <outlet property="gameDetailTitle" destination="y8z-U5-K6V" id="bpU-qP-NDU"/>
+                        <outlet property="gameDetailWebsite" destination="G4i-gt-Jo1" id="VQb-yo-YhL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kZW-cj-15o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="788" y="100"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="globe" catalog="system" width="128" height="121"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
