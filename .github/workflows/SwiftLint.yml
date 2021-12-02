@@ -1,0 +1,22 @@
+name: SwiftLint
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/SwiftLint.yml'
+      - 'Gamepedia/.swiftlint.yml'
+      - '**/**/*.swift'
+  push:
+    paths:
+      - '.github/workflows/SwiftLint.yml'
+      - 'Gamepedia/.swiftlint.yml'
+      - '**/**/*.swift'
+  
+
+jobs:
+  SwiftLint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: GitHub Action for SwiftLint
+        uses: TommyRchmt/Gamepedia@v1
