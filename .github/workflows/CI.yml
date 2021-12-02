@@ -22,3 +22,5 @@ jobs:
       run: xcodebuild clean build test -workspace Gamepedia/Gamepedia.xcworkspace -scheme Gamepedia -derivedDataPath Build/ -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.0' build test
     - name: Create code coverage report
       run: bash xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ > sonarqube-generic-coverage.xml
+    - name: Import code coverage report
+      run: sonar-scanner -Dsonar.projectKey=TestCoverage -Dsonar.sources=. -Dsonar.coverageReportPaths=sonarqube-generic-coverage.xml -Dsonar.cfamily.build-wrapper-output.bypass=true
