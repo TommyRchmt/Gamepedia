@@ -19,4 +19,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: GitHub Action for SwiftLint
-        uses: TommyRchmt/Gamepedia@1.0.0
+        uses: norio-nomura/action-swiftlint@3.0.1
