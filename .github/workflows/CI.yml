@@ -23,7 +23,7 @@ jobs:
     - name: Create code coverage report
       run: bash xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ > sonarqube-generic-coverage.xml
     - name: Upload Coverage Report to Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage-report
-          path: sonarqube-generic-coverage.xml
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage-report
+        path: sonarqube-generic-coverage.xml
