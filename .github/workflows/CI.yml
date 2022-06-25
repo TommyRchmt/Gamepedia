@@ -85,7 +85,7 @@ jobs:
       with:
         path: dd-tar-cache
         key: v1-derived-data-cache-${{ hashFiles('**/tmp/current_dev_commit_sha') }}
-        restores-keys: v1-derived-data-cache-
+        restore-keys: v1-derived-data-cache-
     - name: Create code coverage report
       run: bash xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ > sonarqube-generic-coverage.xml
       
@@ -111,13 +111,13 @@ jobs:
     - name: Add nearest develop commit SHA environment variable
       run: |
         echo $(bash Scripts/nearest_develop_SHA.sh) > /tmp/nearest_dev_commit_sha
-    - name: Save cache [Derived Data]
+    - name: Restore cache [Derived Data]
       uses: actions/cache@v3
       id: get-cache
       with:
         path: dd-tar-cache
         key: v1-derived-data-cache-${{ hashFiles('**/tmp/current_dev_commit_sha') }}
-        restores-keys: v1-derived-data-cache-
+        restore-keys: v1-derived-data-cache-
     - name: Untar derived data
       run: if [ -f dd-tar-cache/dd.tar ]; then tar xvPpf dd-tar-cache/dd.tar; else echo "No cache file"; fi
     - name: Set IgnoreFileSystemDeviceInodeChanges flag
