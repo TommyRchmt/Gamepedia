@@ -2,7 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+        - master
+        - development
   pull_request:
     branches: [ master ]
 
@@ -35,7 +37,7 @@ on:
 #        - name: Add nearest develop commit SHA environment variable
 #          run: |
 #            echo $(bash Scripts/nearest_develop_SHA.sh) > /tmp/nearest_dev_commit_sha
-#        - name: Save cache [Derived Data]
+#        - name: Restore cache [Derived Data]
 #          uses: actions/cache@v3
 #          id: get-cache
 #          with:
@@ -48,10 +50,11 @@ on:
 #          run: defaults write com.apple.dt.XCBuild IgnoreFileSystemDeviceInodeChanges -bool YES
 
 jobs:
-  build-and-test:
-    name: Build and Test Project
+  build-and-test-master:
+    name: Build and Test Project (Master)
     runs-on: macos-11
-
+    if: ${{ github.ref == 'refs/heads/master' }}
+    
     steps:
     - uses: actions/checkout@v2
       with:
@@ -91,6 +94,58 @@ jobs:
       with:
         name: coverage-report
         path: sonarqube-generic-coverage.xml
+        
+        
+  build-and-test-development:
+    name: Build and Test Project (Development)
+    runs-on: macos-11
+    if: ${{ github.ref == 'refs/heads/development' }}
+    
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    #Restore derived data
+    - name: Git Fetch
+          run: git fetch --no-tags
+    - name: Add nearest develop commit SHA environment variable
+          run: |
+            echo $(bash Scripts/nearest_develop_SHA.sh) > /tmp/nearest_dev_commit_sha
+    - name: Save cache [Derived Data]
+      uses: actions/cache@v3
+      id: get-cache
+      with:
+        path: dd-tar-cache
+        key: v1-derived-data-cache-${{ hashFiles('**/tmp/current_dev_commit_sha') }}
+        restores-keys: v1-derived-data-cache-
+    - name: Untar derived data
+        run: if [ -f dd-tar-cache/dd.tar ]; then tar xvPpf dd-tar-cache/dd.tar; else echo "No cache file"; fi
+    - name: Set IgnoreFileSystemDeviceInodeChanges flag
+        run: defaults write com.apple.dt.XCBuild IgnoreFileSystemDeviceInodeChanges -bool YES
+        
+    #update mtime
+    - name: Update mtime for incremental builds
+      run: |
+        python3 git-restore-mtime --force
+    
+    - name: Install Dependencies
+      run: |
+        cd Gamepedia
+        pod install --repo-update
+      shell: bash
+      
+    - name: Build and test
+      run: xcodebuild clean build test -workspace Gamepedia/Gamepedia.xcworkspace -scheme Gamepedia -derivedDataPath Build/ -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.2' build test
+      
+    - name: Create code coverage report
+      run: bash xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ > sonarqube-generic-coverage.xml
+      
+    - name: Upload Coverage Report to Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage-report
+        path: sonarqube-generic-coverage.xml
+        
         
   sonarcloud:
     name: Analyze with SonarCloud
