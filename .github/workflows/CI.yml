@@ -6,6 +6,47 @@ on:
   pull_request:
     branches: [ master ]
 
+commands:
+    restore_mtime:
+        steps:
+        - name: Update mtime for incremental builds
+          run: |
+            python3 git-restore-mtime --force
+            
+    save_derived_data:
+        steps:
+        - name: Add current develop commit SHA environment variable
+          run: |
+                echo $(git show --format="%H" --no-patch) > /tmp/current_dev_commit_sha
+        - name: Tar up derived data
+          run: mkdir -p dd-tar-cache && tar cfPp dd-tar-cache/dd.tar --format posix ~/Library/Developer/Xcode/DerivedData/
+
+        - name: Save cache [Derived Data]
+          uses: actions/cache@v3
+          with:
+            path: dd-tar-cache
+            key: v1-derived-data-cache-${{ hashFiles('**/tmp/current_dev_commit_sha') }}
+            restores-keys: v1-derived-data-cache-
+            
+    restore_derived_data_from_develop:
+        steps:
+        - name: Git Fetch
+          run: git fetch --no-tags
+        - name: Add nearest develop commit SHA environment variable
+          run: |
+            echo $(bash Scripts/nearest_develop_SHA.sh) > /tmp/nearest_dev_commit_sha
+        - name: Save cache [Derived Data]
+          uses: actions/cache@v3
+          id: get-cache
+          with:
+            path: dd-tar-cache
+            key: v1-derived-data-cache-${{ hashFiles('**/tmp/current_dev_commit_sha') }}
+            restores-keys: v1-derived-data-cache-
+        - name: Untar derived data
+          run: if [ -f dd-tar-cache/dd.tar ]; then tar xvPpf dd-tar-cache/dd.tar; else echo "No cache file"; fi
+        - name: Set IgnoreFileSystemDeviceInodeChanges flag
+          run: defaults write com.apple.dt.XCBuild IgnoreFileSystemDeviceInodeChanges -bool YES
+
 jobs:
   build-and-test:
     name: Build and Test Project
@@ -13,6 +54,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - restore_derived_data_from_develop
+    - restore_mtime
     - name: Install Dependencies
       run: |
         cd Gamepedia
