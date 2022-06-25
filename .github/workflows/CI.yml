@@ -12,7 +12,7 @@ on:
 #        - name: Update mtime for incremental builds
 #          run: |
 #            python3 git-restore-mtime --force
-#            
+#
 #    save_derived_data:
 #        steps:
 #        - name: Add current develop commit SHA environment variable
@@ -27,7 +27,7 @@ on:
 #            path: dd-tar-cache
 #            key: v1-derived-data-cache-${{ hashFiles('**/tmp/current_dev_commit_sha') }}
 #            restores-keys: v1-derived-data-cache-
-#            
+#
 #    restore_derived_data_from_develop:
 #        steps:
 #        - name: Git Fetch
@@ -76,7 +76,7 @@ jobs:
       run: |
         echo $(git show --format="%H" --no-patch) > /tmp/current_dev_commit_sha
     - name: Tar up derived data
-      run: mkdir -p dd-tar-cache && tar cfPp dd-tar-cache/dd.tar --format posix ~/Library/Developer/Xcode/DerivedData/
+      run: mkdir -p dd-tar-cache && tar cfPp dd-tar-cache/dd.tar --format posix ~/work/Gamepedia/Gamepedia/Build
     - name: Save cache [Derived Data]
       uses: actions/cache@v3
       with:
