@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
         self.setupObserver()
         self.tableViewDataSource.registerDataSource(self, tableView: self.tableView)
         self.viewModel?.getGameList()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
