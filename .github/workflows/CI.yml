@@ -107,10 +107,10 @@ jobs:
         fetch-depth: 0
     #Restore derived data
     - name: Git Fetch
-          run: git fetch --no-tags
+      run: git fetch --no-tags
     - name: Add nearest develop commit SHA environment variable
-          run: |
-            echo $(bash Scripts/nearest_develop_SHA.sh) > /tmp/nearest_dev_commit_sha
+      run: |
+        echo $(bash Scripts/nearest_develop_SHA.sh) > /tmp/nearest_dev_commit_sha
     - name: Save cache [Derived Data]
       uses: actions/cache@v3
       id: get-cache
@@ -119,9 +119,9 @@ jobs:
         key: v1-derived-data-cache-${{ hashFiles('**/tmp/current_dev_commit_sha') }}
         restores-keys: v1-derived-data-cache-
     - name: Untar derived data
-        run: if [ -f dd-tar-cache/dd.tar ]; then tar xvPpf dd-tar-cache/dd.tar; else echo "No cache file"; fi
+      run: if [ -f dd-tar-cache/dd.tar ]; then tar xvPpf dd-tar-cache/dd.tar; else echo "No cache file"; fi
     - name: Set IgnoreFileSystemDeviceInodeChanges flag
-        run: defaults write com.apple.dt.XCBuild IgnoreFileSystemDeviceInodeChanges -bool YES
+      run: defaults write com.apple.dt.XCBuild IgnoreFileSystemDeviceInodeChanges -bool YES
         
     #update mtime
     - name: Update mtime for incremental builds
