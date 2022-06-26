@@ -76,7 +76,7 @@ jobs:
       shell: bash
       
     - name: Build
-      run: xcodebuild -workspace Gamepedia/Gamepedia.xcworkspace -scheme Gamepedia -derivedDataPath Build/ -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.2'
+      run: xcodebuild clean build -workspace Gamepedia/Gamepedia.xcworkspace -scheme Gamepedia -derivedDataPath Build/ -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.2'
       
     - name: Test
       run: xcodebuild test -workspace Gamepedia/Gamepedia.xcworkspace -scheme Gamepedia -derivedDataPath Build/ -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.2'
