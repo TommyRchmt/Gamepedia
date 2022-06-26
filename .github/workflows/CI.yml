@@ -141,8 +141,11 @@ jobs:
         pod install --repo-update
       shell: bash
       
-    - name: Build and test
-      run: xcodebuild clean build test -workspace Gamepedia/Gamepedia.xcworkspace -scheme Gamepedia -derivedDataPath Build/ -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.2' build test
+    - name: Build
+      run: xcodebuild -workspace Gamepedia/Gamepedia.xcworkspace -scheme Gamepedia -derivedDataPath Build/ -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.2'
+      
+    - name: Test
+      run: xcodebuild test -workspace Gamepedia/Gamepedia.xcworkspace -scheme Gamepedia -derivedDataPath Build/ -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.2'
       
     - name: Create code coverage report
       run: bash xccov-to-sonarqube-generic.sh Build/Logs/Test/*.xcresult/ > sonarqube-generic-coverage.xml
