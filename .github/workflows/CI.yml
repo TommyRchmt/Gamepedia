@@ -117,7 +117,7 @@ jobs:
       run: git fetch --no-tags
     - name: Add nearest develop commit SHA environment variable
       run: |
-        echo $(bash Scripts/nearest_develop_SHA.sh) > /tmp/nearest_dev_commit_sha
+        echo $(bash nearest_develop_SHA.sh) > /tmp/nearest_dev_commit_sha
     - name: Restore cache [Derived Data]
       uses: actions/cache@v3
       id: get-cache
